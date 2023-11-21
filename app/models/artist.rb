@@ -4,5 +4,6 @@ class Artist < ApplicationRecord
   has_many :artworks
   has_many :availabilities
 
-  validates :artist_avatar, presence: true
+  validates :artist_avatar, presence: true, uniqueness: true
+  validates :decription, length: { minimum: 10 }
 end
