@@ -63,7 +63,8 @@ puts Artist.create(
   description: "Bring the world to your home",
   personality: "Natural and simple",
   style: "Modern",
-  location: "Amsterdam"
+  location: "Amsterdam",
+  hourly_rate: 50
 )
 
 Artist.create(
@@ -71,7 +72,8 @@ Artist.create(
   description: "Joy through colour",
   personality: "Vibrant and energetic",
   style: "Color pop",
-  location: "Ghana"
+  location: "Ghana",
+  hourly_rate: 100
 )
 
 Artist.create(
@@ -79,7 +81,8 @@ Artist.create(
   description: "Missing Italian breakfasts, lunches and dinners",
   personality: "Elegant and sophisticated",
   style: "Romantic",
-  location: "Mexico City"
+  location: "Mexico City",
+  hourly_rate: 150
 )
 
 Review.create(
