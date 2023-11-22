@@ -20,7 +20,7 @@
         <div class="col-3">
           <div class="artist-card">
           <div class="artist-image d-flex justify-content-center">
-            <img class="avatar-large " src="<%= artist.artist_avatar ?  artist.artist_avatar : "https://source.unsplash.com/random/?avatar&#{artist.id}" %>" alt="avatar">
+            <img class="avatar-large " src="<%= artist.user.user_avatar ?  artist.user.user_avatar : "https://source.unsplash.com/random/?avatar&#{artist.id}" %>" alt="avatar">
           </div>
           </div>
           <p class="text-center mt-3"> <%= artist.user.first_name %>
