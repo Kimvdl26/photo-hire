@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:destroy]
   resources :artworks, only: [:destroy]
 
+
   get 'profile', to: 'pages#profile'
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
