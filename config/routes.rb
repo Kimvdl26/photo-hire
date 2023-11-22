@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :artists, only: [:show] do
+    resources :artworks, only: [:index, :new, :create]
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:destroy]
+  resources :artworks, only: [:destroy]
 
   get 'profile', to: 'pages#profile'
 
