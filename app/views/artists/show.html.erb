@@ -5,29 +5,25 @@
     </div>
     <div class="col-6 right-section justify-content-end pt-1 mt-5">
       <div class="mb-2">
-        <h3>Tim Walker</h3>
-        <h5>150€/Day</h5>
+        <h3><%= "#{@artist.user.first_name} #{@artist.user.last_name}" %></h3>
+        <h5><%= @artist.hourly_rate %>€/Day</h5>
       </div>
-      <h5 class="btn btn-primary">Book Tim</h5>
+      <h5 class="btn btn-outline-primary">Book <%= @artist.user.first_name %></h5>
       <div class="d-flex justify-content-between m-1">
         <h6><strong>Personality</strong></h6>
-        <p>Creative, self motivated</p>
+        <p><%= @artist.personality %></p>
       </div>
       <div class="d-flex justify-content-between m-1">
         <h6><strong>Style</strong></h6>
-        <p>Minimal</p>
+        <p><%= @artist.style %></p>
       </div>
       <div class="d-flex justify-content-between m-1">
         <h6><strong>Location</strong></h6>
-        <p>Berlin, Germany</p>
+        <p><%= @artist.location %></p>
       </div>
       <div>
         <h6 class="d-flex justify-content-start"><strong>Description</strong></h6>
-        <p>Walker crafts whimsical dreamscapes where reality dances with fantasy. His signature style transcends
-        boundaries, blending vibrant colors, theatrical sets, and larger-than-life characters to provoke wonder and
-        introspection. Each frame he captures narrates a spellbinding story, inviting viewers to wander through the
-        corridors of their imagination. Walker stands as a virtuoso, painting surreal canvases with the light of his
-      imagination, leaving an indelible mark on the tapestry of contemporary art.</p>
+        <p><%= @artist.description %></p>
       </div>
     </div>
   </div>
