@@ -28,27 +28,31 @@
     </div>
   </div>
 </div>
-<%# <br> %>
-<%# <div>
-  <h5>What <strong>ShutterJoy</strong> users are saying</h5>
-  <br>
-  <h6>Yifei Chen</h6>
-  <h6>Seoul, South Korea | April 2019</h6>
-  <h6>“Tim is a great photographer. He is very professional and has a great eye for detail. He is also very
-    friendly and easy to work with. I would definitely recommend him to anyone looking for a photographer.”</h6>
-  <br>
-  <h6>Anthony Lewis</h6>
-  <h6>Amsterdam, The Netherlands | April 2019</h6>
-  <h6>“Tim is a great photographer. He is very professional and has a great eye for detail. He is also very
-    friendly and easy to work with. I would definitely recommend him to anyone looking for a photographer.”</h6>
+
+<div class="pb-3 pt-5 text-center">
+  <h6>What <strong>ShutterJoy</strong> users are saying</h6>
+  <% @reviews.each do |review|  %>
+  <div class="row mt-5 w-18">
+    <h6><%= review.booking.user.first_name %></h6>
+    <h6>Seoul, South Korea | April 2019</h6>
+    <p>"<%= @artist.user.first_name %> is a great photographer. He is very professional and has a great eye for detail. He is also very
+      friendly and easy to work with. I would definitely recommend him to anyone looking for a photographer."</p>
+  </div>
+  <% end %>
+  <%# <div>
+    <h6>Anthony Lewis</h6>
+    <h6>Amsterdam, The Netherlands | April 2019</h6>
+    <p>“Tim is a great photographer. He is very professional and has a great eye for detail. He is also very
+      friendly and easy to work with. I would definitely recommend him to anyone looking for a photographer.”</p>
+  </div>
 </div>
-<br>
+<%# <br>
 <div>
   <h5>Related Artwork</h5>
   <h6>View all</h6>
   <br>
-  <div>
-    <%= image_tag "first_img.jpeg" %>
+  <div> %>
+    <%# <%= image_tag "first_img.jpeg" %>
     <%# <h6>Tim Walker</h6>
     <h6>Ninh Binh, Vietnam</h6>
   </div>
