@@ -1,9 +1,26 @@
-button-blue {
+.button {
   display: flex;
-  min-width: 225px;
   height: 50px;
   padding: 15px 40px;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  margin: 5px 10px;
+}
+
+.button-blue {
+  background: #3D00B7;
+}
+
+.button-white {
+  background: #FFFFFF;
+  color: #3D00B7;
+}
+
+.button-outline {
+  border: 1px solid #3D00B7;
+  color: #3D00B7;
 }
