@@ -1,0 +1,11 @@
+<div class="col-9 mt-5 mx-auto">
+  <h1> Add a new Artwork here </h1>
+  <%# <ul> <%= link_to "Back", artworks_path %> 
+
+  <%= simple_form_for([@artist, @artwork]) do |f| %>
+    <%= f.input :artworks, as: :file, input_html: { multiple: true } %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.submit class: 'btn btn-flat' %>
+  <% end %>
+</div>
