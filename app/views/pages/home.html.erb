@@ -4,8 +4,8 @@
         <h1>Art is beautiful, Art is life, Book your Artist</h1>
         <p>Browse our collection to find the Artists behind these beautiful masterpieces. Join us today and get bookings!</p>
         <div class="banner-action d-flex justify-content-between">
-          <a href="/artists/<%= Artist.first.id %>/artowrk " class="button button-blue">Explore Artworks</a>
-          <a href="/artists/<%= Artist.first.id %>/artowrk " class="button button-white">Become an artist</a>
+          <a href="<%= artist_artworks_path(Artist.first) %>" class="button button-blue">Explore Artoworks</a>
+          <a href="<%= artist_artworks_path(Artist.first) %>" class="button button-white">Become an artists</a>
         </div>
     </div>
 </div>
@@ -13,18 +13,20 @@
   <div class="row">
     <div class="artist-header mt-5 d-flex justify-content-between align-items-center">
       <h2>Artists</h2>
-      <a href="" class="button button-outline">View All</a>
+      <a href="<%= artist_artworks_path(Artist.first) %>" class="button button-outline">View All</a>
     </div>
     <div class="row">
         <% @artists.each do |artist| %>
-        <div class="col-3">
-          <div class="artist-card">
-          <div class="artist-image d-flex justify-content-center">
-            <img class="avatar-large " src="<%= artist.user.user_avatar ?  artist.user.user_avatar : "https://source.unsplash.com/random/?avatar&#{artist.id}" %>" alt="avatar">
+          <div class="col-sm-6 col-lg-3 mb-3">
+            <%= link_to artist_artworks_path(artist)  do %>
+              <div class="artist-card">
+                <div class="artist-image d-flex justify-content-center">
+                  <img class="avatar-large " src="<%= artist.user.user_avatar ?  artist.user.user_avatar : "https://source.unsplash.com/random/?avatar&#{artist.id}" %>" alt="avatar">
+                </div>
+              </div>
+              <p class="text-center mt-3"> <%= artist.user.first_name %>
+            <% end %>
           </div>
-          </div>
-          <p class="text-center mt-3"> <%= artist.user.first_name %>
-        </div>
         <% end %>
     </div>
   </div>
