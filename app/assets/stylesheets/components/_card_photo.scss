@@ -26,3 +26,23 @@
   align-items: flex-end;
   position: relative;
 }
+
+.cards-vertical {
+  display: flex;
+  overflow: scroll;
+}
+
+.card-review {
+  width: 300px;
+  flex-shrink: 0;
+  height: 100%;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #3D00B7;
+
+  p {
+    font-weight:lighter;
+    font-size:12px;
+    line-height:0;
+  }
+}

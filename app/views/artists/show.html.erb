@@ -36,25 +36,22 @@
     <div class="row">
       <h6 class="text-center">What <strong>ShutterJoy</strong> users are saying</h6>
     </div>
-    <div class="row mt-5">
+    <div class="mt-5 cards-vertical">
       <% @reviews.each do |review|  %>
-        <div class="col-3">
-          <div>
+        <div class="card-review card bg-white me-3">
+          <div class="mb-1">
             <h6>john<%= review.booking.user.first_name %></h6>
           </div>
-          <div>
+          <div class="mb-3">
             <h6>
               <% review.rating.to_i.times do %>
                 ⭐️
               <% end %>
             </h6>
           </div>
-          <div class="card-text">
-            <p>"<%= review.content %>"</p>
-          </div>
+          <p class="mb-1">"<%= review.content %>"</p>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-<%= console %>
