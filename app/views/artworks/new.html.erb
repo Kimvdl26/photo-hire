@@ -1,13 +1,8 @@
 <div class="col-9 mt-5 mx-auto">
   <h4> Upload an Artwork </h4>
   <%# <ul> <%= link_to "Back", artworks_path %>
-  <div class="col-6 mt-5 mx-auto d-flex justify-content-between align-items-center">
-    <%= simple_form_for([@artist, @artwork]) do |f| %>
-      <%= f.input :artworks, as: :file, input_html: { multiple: true } %>
-      <%= f.input :title %>
-      <%= f.input :description %>
-      <%= f.submit class: 'btn btn-primary full-width-button' %>
-    <% end %>
+  <div class="col-6 mt-5 mx-auto d-flex justify-content-center align-items-center">
+    <%= render "artworks/form", artwork: @artwork %>
   </div>
 
   <div>
@@ -18,5 +13,4 @@
 
     <%= render "artworks/artwork_row", artworks: @artworks %>
   </div>
-
 </div>
