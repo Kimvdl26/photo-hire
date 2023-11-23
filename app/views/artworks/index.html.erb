@@ -1,28 +1,30 @@
 <div class="container">
 
-  <h1> All my artwork </h1>
+  <h4> All my artwork </h4>
   <%= link_to "Add a new Artwork", new_artist_artwork_path(@artist) %>
 
-  <div class="row mt-5">
-  <% @artworks.each do |artwork| %>
-    <% artwork.artworks.each do |photo| %>
-      <div class="col-3" data-aos="zoom-in">
-        <div class="card-photo">
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-          <div class="card-photo-infos">
-            <div>
-              <p> <%= artwork.title %> </p>
-              <small class="text-muted"><%= artwork.description %></small>
-            </div>
-            <%# <span class="text-muted font-weight-normal"> %>
-            <small class="text-right flex-shrink-0">
-              <%= link_to "delete", artwork_path(artwork), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{artwork.title} from your list?" }, class: 'text-danger' %>
-            </small>
-            <%# </span> %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-  </div>
+<div class="row mt-5">
+<div class="card-columns">
+ <% @artworks.each do |artwork| %>
+   <% artwork.artworks.each do |photo| %>
+     <div class="card-wrapper mb-2" data-aos="zoom-in">
+       <div class="card-photo">
+         <%= cl_image_tag photo.key, crop: :fill %>
+         <div class="card-photo-infos">
+           <div>
+             <p> <%= artwork.title %> </p>
+             <small class="text-muted"><%= artwork.description %></small>
+           </div>
+           <%# <span class="text-muted font-weight-normal"> %>
+           <small class="text-right flex-shrink-0">
+             <%= link_to "delete", artwork_path(artwork), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{artwork.title} from your list?" }, class: 'text-danger' %>
+           </small>
+           <%# </span> %>
+         </div>
+       </div>
+     </div>
+   <% end %>
+ <% end %>
+ </div>
+</div>
 </div>

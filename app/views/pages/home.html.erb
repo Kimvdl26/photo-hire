@@ -21,7 +21,12 @@
             <%= link_to artist_path(artist)  do %>
               <div class="artist-card">
                 <div class="artist-image d-flex justify-content-center">
-                  <img class="avatar-large " src="<%= artist.user.user_avatar ?  artist.user.user_avatar : asset_url("avatar.jpg") %>" alt="avatar">
+                <% if artist.user.user_avatar.attached?  %>
+                  <%= cl_image_tag(artist.user.user_avatar.key, crop: :fill, class: "avatar-large" )%>
+                <% else %>
+                  <%= image_tag "avatar.jpg", class: "avatar-large" %>
+                <% end %>
+                 <%#= artist.user.user_avatar.key ?  cl_image_tag(artist.user.user_avatar.key) : image_tag "avatar.jpg" %>
                 </div>
               </div>
               <p class="text-center mt-3"> <%= artist.user.first_name %>
@@ -32,3 +37,5 @@
   </div>
   </div>
 </div>
+
+<%= console %>

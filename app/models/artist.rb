@@ -4,5 +4,5 @@ class Artist < ApplicationRecord
   has_many :artworks
   has_many :availabilities
 
-  validates :description, length: { minimum: 10 }
+  validates :user_id, uniqueness: true
 end

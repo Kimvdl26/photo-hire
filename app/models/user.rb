@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :artists
+  has_one :artist
   has_many :bookings
   has_one_attached :user_avatar
   validates :email, presence: true, uniqueness: true

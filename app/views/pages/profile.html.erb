@@ -3,12 +3,19 @@
     <div class="row mb-5">
     <div class="artist-header d-flex justify-content-between align-items-center">
       <h2>Welcome back <%= current_user.first_name %> <%= current_user.last_name %></h2>
-      <%= link_to "Edit ✎", edit_user_registration_path, class: "button button-blue" %>
+      <div class="button-group d-flex">
+        <% if current_user.is_artist  %>
+          <%= link_to new_artist_artwork_path(@artist), class: "button button-blue" do %>
+            Upload Artwork <i class="fa-solid fa-plus ms-2"></i>
+          <% end %>
+        <% end %>
+        <%= link_to "Edit Profile ✎", edit_artist_path(@artist), class: "button button-outline" %>
+      </div>
     </div>
     </div>
   <div class="row user-details">
     <div class="col-6">
-      <%= current_user.user_avatar.key ? (cl_image_tag current_user.user_avatar.key, height: 300, width: 400, crop: :fill) : (image_tag "avatar.png")  %>
+      <%= current_user.user_avatar.key ? (cl_image_tag current_user.user_avatar.key, height: 300, width: 400, crop: :fill) : (image_tag "avatar.jpg")  %>
     </div>
     <div class="col-6">
       <div class="user-details--item d-flex justify-content-between align-items-center">
