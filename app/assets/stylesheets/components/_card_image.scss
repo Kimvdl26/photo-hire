@@ -20,7 +20,7 @@
 }
 
 .card-image .card-image-infos {
-  padding: 16px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -30,6 +30,7 @@
 .cards-vertical {
   display: flex;
   overflow: scroll;
+  gap: 10px;
 }
 
 .card-review {
