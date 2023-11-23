@@ -4,14 +4,14 @@
   grid-gap: 8px;
 }
 
-.card-photo {
+.card-image {
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   height: 300;
   border-radius: 8px;
 }
 
-.card-photo > img {
+.card-image > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
@@ -19,7 +19,7 @@
   border-top-right-radius: 8px;
 }
 
-.card-photo .card-photo-infos {
+.card-image .card-image-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;

@@ -4,13 +4,13 @@
     <div class="row">
       <% @artworks.each do |artwork| %>
         <% artwork.artworks.each do |photo| %>
-          <div class="col-3" data-aos="zoom-in">
-            <div class="card-photo">
+          <div class="col-3 mb-2" data-aos="zoom-in">
+            <div class="card-image">
               <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-              <div class="card-photo-infos">
+              <div class="card-image-infos">
               <div>
-                <p> <%= artwork.title %> </p>
-                <small class="text-muted"><%= artwork.description %></small>
+                <h6> <%= artwork.title %> </h6>
+                <p><%= artwork.description %></p>
               </div>
             <%# <span class="text-muted font-weight-normal"> %>
             <%# </span> %>
