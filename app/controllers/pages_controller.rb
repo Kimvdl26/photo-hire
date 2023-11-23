@@ -5,6 +5,10 @@ class PagesController < ApplicationController
     @artists = Artist.all
   end
 
+  def index_artworks
+    @artworks = Artwork.all
+  end
+
   def profile
     @bookings = current_user.bookings
     @artist = current_user.artist.id

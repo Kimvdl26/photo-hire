@@ -1,7 +1,7 @@
 <div class="container">
 <div class="artist-header mt-5 d-flex justify-content-between align-items-center">
-  <h4> All my artwork </h4>
-  <%= link_to "Add Artwork", new_artist_artwork_path(@artist), class: "btn btn-primary style: border-radius: 8px;"%>
+  <h4> All Artwork </h4>
+  <%= link_to "Back", root_path, class: "btn btn-primary style: border-radius: 8px;" %>
 </div>
 <div class="row mt-5">
 <div class="card-columns">
@@ -16,10 +16,6 @@
                 <h4> <%= artwork.title %> </h4>
                 <p><%= artwork.description %></p>
               </div>
-              <small class="text-right flex-shrink-0">
-                <%= link_to "edit", edit_artist_artwork_path(@artist, artwork), style: 'color: white; text-decoration: underline;' %> |
-                <%= link_to "delete", artwork_path(artwork), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{artwork.title} from your list?" }, style: 'color: white; text-decoration: underline;' %>
-              </small>
             </div>
           </div>
         </div>
@@ -30,18 +26,15 @@
             <%= image_tag "avatar.jpg", crop: :fill %>
             <div class="card-photo-infos">
               <div>
-                <h4> <%= artwork.title %> </h4>
+                <h4><%= artwork.title %></h4>
                 <p><%= artwork.description %></p>
               </div>
-              <small class="text-right flex-shrink-0">
-                <%= link_to "edit", edit_artist_artwork_path(@artist, artwork) %>
-                <%= link_to "delete", artwork_path(artwork), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{artwork.title} from your list?" }, class: 'text-danger' %>
-              </small>
             </div>
           </div>
         </div>
     <% end %>
   <% end %>
   </div>
+</div>
 </div>
 </div>
