@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :artworks, only: [:index, :new, :create]
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:destroy]
+  resources :bookings, only: [:destroy] do
+    resources :reviews, only: [:new, :create]
+  end
   resources :artworks, only: [:destroy]
 
 
