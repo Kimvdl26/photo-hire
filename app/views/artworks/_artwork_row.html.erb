@@ -1,0 +1,23 @@
+
+  <div class="row">
+  <h4>
+    <div class="row">
+      <% @artworks.each do |artwork| %>
+        <% artwork.artworks.each do |photo| %>
+          <div class="col-3" data-aos="zoom-in">
+            <div class="card-photo">
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+              <div class="card-photo-infos">
+              <div>
+                <p> <%= artwork.title %> </p>
+                <small class="text-muted"><%= artwork.description %></small>
+              </div>
+            <%# <span class="text-muted font-weight-normal"> %>
+            <%# </span> %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>

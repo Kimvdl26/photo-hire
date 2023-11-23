@@ -11,6 +11,7 @@ class ArtworksController < ApplicationController
 
   def new
     @artwork = Artwork.new
+    @artworks = Artwork.where(artist: @artist)
   end
 
   def create
