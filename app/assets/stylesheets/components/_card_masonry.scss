@@ -7,7 +7,6 @@
 .card-photo {
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  height: 300;
   border-radius: 8px;
   position: relative;
 }
@@ -22,6 +21,7 @@
 
 .card-photo .card-photo-infos {
   background-color: rgba(0, 0, 0, 0.7);
+  color: white;
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -48,5 +48,6 @@
 
 .card-photo:hover .card-photo-infos {
   opacity: 1;
+  border-radius: 8px;
   // transform: rotateY(180deg);
 }

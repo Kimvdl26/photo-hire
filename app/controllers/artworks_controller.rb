@@ -1,5 +1,5 @@
 class ArtworksController < ApplicationController
-  before_action :set_artist, only: [:index, :new, :create]
+  before_action :set_artist, only: [:index, :new, :create, :edit]
 
   def index
     @artworks = Artwork.where(artist: @artist)
@@ -21,6 +21,19 @@ class ArtworksController < ApplicationController
       redirect_to artist_artworks_path(@artist), notice: 'Artwork was successfully created.'
     else
       render :new
+    end
+  end
+
+  def edit
+    @artwork = Artwork.find(params[:id])
+  end
+
+  def update
+    @artwork = Artwork.find(params[:id])
+    if @artwork.update(artwork_params)
+      redirect_to artist_artworks_path(@artwork.artist), notice: 'Artwork was successfully updated.'
+    else
+      render :edit
     end
   end
 

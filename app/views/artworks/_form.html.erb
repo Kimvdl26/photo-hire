@@ -1,0 +1,6 @@
+<%= simple_form_for([@artist, @artwork]) do |f| %>
+  <%= f.input :artworks, as: :file, input_html: { multiple: true } %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.submit class: 'btn btn-primary full-width-button' %>
+  <% end %>
