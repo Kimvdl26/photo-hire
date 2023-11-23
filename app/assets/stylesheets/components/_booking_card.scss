@@ -1,0 +1,42 @@
+.booking-card {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+  margin-bottom: 20px;
+  padding: 10px 2%;
+}
+.svg-img {
+  height: 42px;
+}
+
+.booking-card--title {
+  font-size: 16px;
+  color: #27273F;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.booking-card--subtext {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #656565;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.booking-card .status{
+  text-align: right;
+
+  .pending{
+    color: #F5A623;
+  }
+  .accepted {
+    color: #4CAF50;
+  }
+  .declined {
+    color: #F44336;
+  }
+}
