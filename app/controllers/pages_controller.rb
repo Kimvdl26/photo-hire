@@ -7,6 +7,6 @@ class PagesController < ApplicationController
 
   def profile
     @bookings = current_user.bookings
-    # @artists = current_user.artists
+    @artist = current_user.artist.id
   end
 end
