@@ -1,4 +1,45 @@
+<div class="conatiner">
 <div class="col-9 mt-5 mx-auto">
-  <h1>User Profile</h1>
+    <div class="row mb-5">
+    <div class="artist-header d-flex justify-content-between align-items-center">
+      <h2>Welcome back <%= current_user.first_name %> <%= current_user.last_name %></h2>
+      <%= link_to "Edit ✎", edit_user_registration_path, class: "button button-blue" %>
+    </div>
+    </div>
+  <div class="row user-details">
+    <div class="col-6">
+      <%= current_user.user_avatar.key ? (cl_image_tag current_user.user_avatar.key, height: 300, width: 400, crop: :fill) : (image_tag "avatar.png")  %>
+    </div>
+    <div class="col-6">
+      <div class="user-details--item d-flex justify-content-between align-items-center">
+        <h5>Email</h5>
+        <p><%= current_user.email %></p>
+      </div>
+      <div class="user-details--item d-flex justify-content-between align-items-center">
+        <h5>First name</h5>
+        <p><%= current_user.first_name %></p>
+      </div>
+      <div class="user-details--item d-flex justify-content-between align-items-center">
+        <h5>Last name</h3>
+        <p><%= current_user.last_name %></p>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+      <h2>My bookings</h2>
+    <div class="col">
+      <% current_user.bookings.each do |booking| %>
+        <div class="booking-item d-flex justify-content-between align-items-center">
+          <div class="booking-item--left">
+            <h5><%= booking.user.first_name %></h5>
+            <p><%= booking.date.strftime("%A, %d %b %Y") %></p>
+          </div>
+        </div>
+        <% end %>
+      <div class="row">
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>

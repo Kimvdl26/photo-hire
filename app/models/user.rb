@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   has_many :artists
   has_many :bookings
-
+  has_one_attached :user_avatar
   validates :email, presence: true, uniqueness: true
 end
