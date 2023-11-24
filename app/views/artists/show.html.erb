@@ -10,11 +10,24 @@
     <div class="col-6 right-section justify-content-end pt-1 mt-5">
       <div class="my-2 px-2">
         <h3><%= "#{@artist.user.first_name} #{@artist.user.last_name}" %></h3>
-        <h5> <%= @artist.hourly_rate %> €/Day</h5>
+        <h5> <%= @artist.hourly_rate ? @artist.hourly_rate : "100" %> €/Day</h5>
       </div>
-      <a href="<%= new_artist_booking_path(@artist) %>">
-        <h5 class="button button-blue">Book <%= @artist.user.first_name %></h5>
-      </a>
+      <%# <a href="<%= new_artist_booking_path(@artist) > %>
+       <%# <h5 class="button button-blue">Book <%= @artist.user.first_name </h5>%>
+      <%# </a>  %>
+        <div class="col-12 px-2">
+            <div class="card-body mt-4">
+              <%= simple_form_for [@artist, @booking] do |f| %>
+                <%= f.input :date,
+                            as: :string,
+                            label: false,
+                            required: true,
+                            input_html: { data: { controller: "datepicker" , datepicker_disabled_dates_value: @disabled_dates} } %>
+                <%= f.submit "Book #{@artist.user.first_name}", class: 'button button-blue w-100 mx-0' %>
+              <% end %>
+            </div>
+        </div>
+
       <div class="artist-details px-2">
         <div class="d-flex justify-content-between m-1 mt-5">
           <h6><strong>Personality</strong></h6>

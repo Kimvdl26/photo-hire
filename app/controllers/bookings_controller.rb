@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to profile_path, notice: 'Booking was successfully created.'
     else
-      render :new, status: :unprocessable_entity
+      redirect_to artist_path(@artist), notice: 'Please select a date.'
     end
   end
 

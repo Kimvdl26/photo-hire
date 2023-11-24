@@ -77,3 +77,4 @@ end
 
 gem "cloudinary"
 gem "dotenv-rails"
+gem 'flatpickr', '~> 2.3', '>= 2.3.5.0'
