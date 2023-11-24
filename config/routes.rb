@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
   resources :artworks, only: [:destroy]
 
+  patch '/bookings/:id/accept', to: 'bookings#accept', as: 'accept_booking'
+  patch '/bookings/:id/reject', to: 'bookings#reject', as: 'reject_booking'
 
   get 'profile', to: 'pages#profile'
   get 'index_artworks', to: 'pages#index_artworks'

@@ -1,5 +1,4 @@
 class ArtistsController < ApplicationController
-
   def new
     @artist = Artist.new
   end
@@ -9,7 +8,6 @@ class ArtistsController < ApplicationController
     @artist.user = current_user
     if @artist.save
       current_user.update(is_artist: true)
-      current_user.save
       redirect_to profile_path, notice: 'Artist was successfully created.'
     else
       render :new, status: :unprocessable_entity
@@ -18,6 +16,12 @@ class ArtistsController < ApplicationController
 
   def edit
     @artist = Artist.find(params[:id])
+  end
+
+  def update
+    artist = Artist.find(params[:id])
+    artist.update(params.require(:artist).permit(:description, :personality, :style, :location, :hourly_rate))
+    redirect_to profile_path
   end
 
   def show

@@ -3,7 +3,11 @@ class Artist < ApplicationRecord
 
   has_many :artworks, dependent: :destroy
   has_many :availabilities
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
+  has_many :reviews, through: :bookings
 
-  validates :user_id, uniqueness: true
+  validates :description, presence: { message: "Please enter a description" }
+  validates :location, presence: { message: "Please enter a location" }
+  validates :hourly_rate, presence: { message: "Please enter an hourly rate" }
+  validates :user_id, presence: { message: "Not a valid user" }
 end
