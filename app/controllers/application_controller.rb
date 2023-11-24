@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :is_artist, :user_avatar])
   end
 
-  def after_sign_up_path_for(resource)
-    if resource.is_artist == true
+  def after_sign_in_path_for(resource)
+    if resource.is_artist == true && request.referer.end_with?("sign_up")
        new_artist_path
     else
       root_path

@@ -6,10 +6,6 @@ class PagesController < ApplicationController
     @artworks = Artwork.all
   end
 
-  def index_artworks
-    @artworks = Artwork.all
-  end
-
   def profile
     @bookings = current_user.bookings
   end
