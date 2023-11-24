@@ -1,0 +1,38 @@
+<div class="row mt-5">
+<div class="card-columns">
+  <% @artworks.each_with_index do |artwork| %>
+    <% if artwork.artworks.attached? %>
+      <% artwork.artworks.each do |photo| %>
+        <div class="card-wrapper mb-2" data-aos="zoom-in">
+         <%= link_to artist_path(artwork.artist) do %>
+          <div class="card-photo">
+            <%= cl_image_tag photo.key, crop: :fill %>
+            <div class="card-photo-infos">
+              <div>
+                <h4><%= artwork.title %></h4>
+                <p><%= artwork.description %></p>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="card-wrapper mb-2" data-aos="zoom-in">
+        <%= link_to artist_path(artwork.artist) do %>
+          <div class="card-photo">
+            <%= image_tag "avatar.jpg", crop: :fill %>
+            <div class="card-photo-infos">
+                <div>
+                  <h4><%= artwork.title %></h4>
+                  <p><%= artwork.description %></p>
+                </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+    <% end %>
+    <% break if defined?(is_homepage) && is_homepage && index >= 11 %>
+  <% end %>
+  </div>
+</div>

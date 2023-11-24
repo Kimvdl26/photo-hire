@@ -1,7 +1,7 @@
 <div class="col-9 mt-5 mx-auto">
   <div class="artist-header mt-5 d-flex justify-content-between align-items-center">
     <h4> Upload an Artwork </h4>
-    <%= link_to "Back", artist_artworks_path(@artist), class: "btn btn-primary style: border-radius: 8px;" %>
+    <%= link_to "Back", artist_artworks_path(@artist), class: "button button-outline" %>
   </div>
   <div class="col-6 mt-5 mx-auto d-flex justify-content-center align-items-center">
     <%= render "artworks/form", artwork: @artwork %>
@@ -10,7 +10,7 @@
   <div>
     <div class="d-flex justify-content-between mt-5 mb-2">
       <h4> Your artwork </h4>
-      <%= link_to "View all", artist_artworks_path(@artist), class: "btn btn-primary style: border-radius: 8px;" %>
+      <%= link_to "View all", artist_artworks_path(@artist), class: "button button-outline" %>
     </div>
     <%= render "artworks/artwork_row", artworks: @artworks %>
   </div>

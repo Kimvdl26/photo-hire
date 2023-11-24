@@ -14,8 +14,17 @@
 <div class="container">
   <div class="row">
     <div class="artist-header mt-5 d-flex justify-content-between align-items-center">
+      <h2>Featured</h2>
+      <a href="<%= index_artworks_path %>" class="button button-outline">View All</a>
+      </div>
+      <%= render "artworks/artwork_row", artworks: @artworks %>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="artist-header mt-5 d-flex justify-content-between align-items-center">
       <h2>Artists</h2>
-      <a href="<%= artist_artworks_path(Artist.first) %>" class="button button-outline">View All</a>
+      <a href="<%= index_artists_path %>" class="button button-outline">View All</a>
     </div>
     <div class="row">
         <% @artists.each do |artist| %>
@@ -37,15 +46,13 @@
         <% end %>
     </div>
   </div>
-  </div>
+</div>
 <div class="container">
   <div class="row">
     <div class="artist-header mt-5 d-flex justify-content-between align-items-center">
-      <h2>Artworks</h2>
+      <h2>All Artwork</h2>
       <a href="<%= index_artworks_path %>" class="button button-outline">View All</a>
-      </div>
-      <div class="col-6 mt-5 mx-auto d-flex justify-content-between align-items-center">
-      <%= render "artworks/artwork_row", artworks: @artworks %>
     </div>
+  <%= render "pages/index_artworks", artwork: @artwork %>
   </div>
 </div>

@@ -1,40 +1,7 @@
 <div class="container">
 <div class="artist-header mt-5 d-flex justify-content-between align-items-center">
   <h4> All Artwork </h4>
-  <%= link_to "Back", root_path, class: "btn btn-primary style: border-radius: 8px;" %>
+  <%= link_to "Back", root_path, class: "button button-outline" %>
 </div>
-<div class="row mt-5">
-<div class="card-columns">
-  <% @artworks.each do |artwork| %>
-    <% if artwork.artworks.attached? %>
-      <% artwork.artworks.each do |photo| %>
-        <div class="card-wrapper mb-2" data-aos="zoom-in">
-          <div class="card-photo">
-            <%= cl_image_tag photo.key, crop: :fill %>
-            <div class="card-photo-infos">
-              <div>
-                <h4> <%= artwork.title %> </h4>
-                <p><%= artwork.description %></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    <% else %>
-      <div class="card-wrapper mb-2" data-aos="zoom-in">
-          <div class="card-photo">
-            <%= image_tag "avatar.jpg", crop: :fill %>
-            <div class="card-photo-infos">
-              <div>
-                <h4><%= artwork.title %></h4>
-                <p><%= artwork.description %></p>
-              </div>
-            </div>
-          </div>
-        </div>
-    <% end %>
-  <% end %>
-  </div>
-</div>
-</div>
+  <%= render "pages/index_artworks", artwork: @artwork %>
 </div>
