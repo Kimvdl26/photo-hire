@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @artists = Artist.all
+    @artworks = Artwork.all
   end
 
   def index_artworks

@@ -4,7 +4,7 @@
         <h1>Art is beautiful, Art is life, Book your Artist</h1>
         <p>Browse our collection to find the Artists behind these beautiful masterpieces. Join us today and get bookings!</p>
         <div class="banner-action d-flex justify-content-between">
-          <a href="<%= artist_artworks_path(Artist.first) %>" class="button button-blue">Explore Artworks</a>
+          <a href="<%= index_artworks_path %>" class="button button-blue">Explore Artworks</a>
           <% unless current_user.is_artist? %>
             <a href="<%= artist_path(Artist.first) %>" class="button button-white">Become an artist</a>
           <% end %>
@@ -37,5 +37,15 @@
         <% end %>
     </div>
   </div>
+  </div>
+<div class="container">
+  <div class="row">
+    <div class="artist-header mt-5 d-flex justify-content-between align-items-center">
+      <h2>Artworks</h2>
+      <a href="<%= index_artworks_path %>" class="button button-outline">View All</a>
+      </div>
+      <div class="col-6 mt-5 mx-auto d-flex justify-content-between align-items-center">
+      <%= render "artworks/artwork_row", artworks: @artworks %>
+    </div>
   </div>
 </div>
