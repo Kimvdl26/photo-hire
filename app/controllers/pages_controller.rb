@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  # skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
     @artists = Artist.all
@@ -16,6 +16,10 @@ class PagesController < ApplicationController
   end
 
   def profile
+    artist = Artist.find_by(user: current_user)
+    if current_user.is_artist? && artist.nil?
+      redirect_to new_artist_path
+    end 
     @bookings = current_user.bookings
   end
 end

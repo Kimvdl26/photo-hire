@@ -5,9 +5,12 @@
         <p>Browse our collection to find the Artists behind these beautiful masterpieces. Join us today and get bookings!</p>
         <div class="banner-action d-flex justify-content-between">
           <a href="<%= index_artworks_path %>" class="button button-blue">Explore Artworks</a>
-          <% unless current_user.is_artist? %>
-            <a href="<%= artist_path(Artist.first) %>" class="button button-white">Become an artist</a>
+          <% if user_signed_in? && !current_user.is_artist? %>
+            <a href="<%= edit_user_registration_path %>" class="button button-white">Become an artist</a>
           <% end %>
+            <% unless user_signed_in?  %>
+              <a href="<%=  new_user_registration_path %>" class="button button-white">Sign up</a>
+            <%end%>
         </div>
     </div>
 </div>

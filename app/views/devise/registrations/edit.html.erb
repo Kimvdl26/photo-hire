@@ -15,7 +15,9 @@
         <%= f.input :first_name %>
         <%= f.input :last_name %>
         <%= f.file_field :user_avatar %>
+        <% if !current_user.is_artist? %>
         <%= f.input :is_artist %>
+        <% end %>
 
         <%= f.input :password,
                     hint: "leave it blank if you don't want to change it",
