@@ -1,6 +1,10 @@
-<h1>Write a review</h1>
-<%= simple_form_for [@booking, @review] do |f| %>
-  <%= f.input :rating %>
-  <%= f.input :content %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <div class="col-6 mt-5 mx-auto">
+    <h1>Write a review</h1>
+    <%= simple_form_for [@booking, @review] do |f| %>
+      <%= f.input :rating %>
+      <%= f.input :content %>
+      <%= f.submit class: "button button-blue" %>
+    <% end %>
+  </div>
+</div>
