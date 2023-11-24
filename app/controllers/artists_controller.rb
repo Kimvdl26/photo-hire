@@ -20,6 +20,12 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
   end
 
+  def update
+    @artist = current_user.artist
+    @artist.update(params.require(:artist).permit(:description, :personality, :style, :location, :hourly_rate))
+    redirect_to profile_path, notice: 'Details succesfully updated.'
+  end
+
   def show
     @artist = Artist.find(params[:id])
     @booking = Booking.new
