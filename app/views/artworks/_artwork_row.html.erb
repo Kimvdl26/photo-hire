@@ -6,7 +6,7 @@
       <% artworks.each do |artwork| %>
         <% artwork.artworks.each do |photo| %>
           <div class="col-3 mb-2" data-aos="zoom-in">
-            <div class="card-image">
+            <div class="card-image h-100">
               <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
               <div class="card-image-infos">
               <div>
