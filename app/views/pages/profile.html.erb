@@ -8,6 +8,10 @@
           <%= link_to new_artist_artwork_path(@artist), class: "button button-blue" do %>
             Upload Artwork <i class="fa-solid fa-plus ms-2"></i>
           <% end %>
+        <% else %>
+          <%= link_to new_artist_path, class: "button button-blue" do %>
+            Become an Artist <i class="fa-solid fa-plus ms-2"></i>
+          <% end %>
         <% end %>
         <%= link_to "Edit Profile ✎", edit_artist_path(@artist), class: "button button-outline" %>
       </div>
@@ -19,47 +23,109 @@
     </div>
     <div class="col-6">
       <div class="user-details--item d-flex justify-content-between align-items-center">
+        <h5>Name</h5>
+        <p><%= current_user.first_name %>&nbsp;<%= current_user.last_name %></p>
+      </div>
+      <div class="user-details--item d-flex justify-content-between align-items-center">
         <h5>Email</h5>
         <p><%= current_user.email %></p>
       </div>
-      <div class="user-details--item d-flex justify-content-between align-items-center">
-        <h5>First name</h5>
-        <p><%= current_user.first_name %></p>
+      <% if current_user.is_artist && current_user.artist.id  %>
+        <div class="user-details--item d-flex justify-content-between align-items-center">
+        <h5>Personality</h5>
+        <p> <%= current_user.artist.personality ? current_user.artist.personality : "---"%> </p>
       </div>
-      <div class="user-details--item d-flex justify-content-between align-items-center">
-        <h5>Last name</h5>
-        <p><%= current_user.last_name %></p>
-      </div>
+        <div class="user-details--item d-flex justify-content-between align-items-center">
+          <h5>Location</h5>
+          <p><%= current_user.artist.location ? current_user.artist.location : "---" %></p>
+        </div>
+        <div class="user-details--item d-flex justify-content-between align-items-center">
+          <h5>Style</h5>
+          <p><%= current_user.artist.style ? current_user.artist.style : "---" %></p>
+        </div>
+        <div class="user-details--item d-flex justify-content-between align-items-center">
+          <h5>Hourly Rate</h5>
+          <p><%= current_user.artist.hourly_rate ? current_user.artist.hourly_rate : "---" %></p>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="row mt-5">
-      <h2>My bookings</h2>
-    <div class="col">
-      <% current_user.bookings.each do |booking| %>
+    <% if current_user.is_artist %>
+      <h2>My Projects</h2>
+      <div class="col mb-5">
+      <% if current_user.artist.bookings.size > 0  %>
+        <% current_user.artist.bookings.each do |booking| %>
+          <div class="row booking-card">
+            <div class="col-1 d-flex align-items-center">
+              <%= image_tag "avatar-user.png", class: "avatar avatar--medium" %>
+            </div>
+            <div class="row col-8 d-flex align-items-center justify-space-between">
+              <div class="booking-card--content col-4">
+                <h5 class="booking-card--title" ><%= booking.user.first_name %>&nbsp;<%= booking.user.last_name %></h5>
+                <p class="booking-card--subtext"><%= booking.artist.location %></p>
+              </div>
+              <div class="booking-card--content col-4">
+                <h5 class="booking-card--title">Booking date</h5>
+                <p class="booking-card--subtext"><%= booking.date.strftime("%A, %d %b %Y") %></p>
+              </div>
+              <div class="booking-card--content status col-4">
+                <h5 class="booking-card--title">Status</h5>
+                <p class="booking-card--subtext <%= booking.status %>"><%= booking.status %></p>
+              </div>
+            </div>
+            <div class="col-3 d-flex align-items-center justify-content-end">
+                <%= image_tag ("accept.svg"), class: "svg-img mx-2" %>
+                <%= image_tag ("reject.svg"), class: "svg-img mx-2 " %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
         <div class="row booking-card">
-          <div class="col-1 d-flex align-items-center">
-            <%= image_tag "avatar-user.png", class: "avatar avatar--medium" %>
-          </div>
-          <div class="row col-8 d-flex align-items-center justify-space-between">
-            <div class="booking-card--content col-4">
-              <h5 class="booking-card--title" ><%= booking.user.first_name %>&nbsp;<%= booking.user.last_name %></h5>
-              <p class="booking-card--subtext"><%= booking.artist.location %></p>
-            </div>
-            <div class="booking-card--content col-4">
-              <h5 class="booking-card--title">Booking date</h5>
-              <p class="booking-card--subtext"><%= booking.date.strftime("%A, %d %b %Y") %></p>
-            </div>
-            <div class="booking-card--content status col-4">
-              <h5 class="booking-card--title">Status</h5>
-              <p class="booking-card--subtext <%= booking.status %>"><%= booking.status %></p>
-            </div>
-          </div>
-          <div class="col-3 d-flex align-items-center justify-content-end">
-            <%= image_tag ("pencil.svg"), class: "svg-img" %>
-            <p class="ms-2 my-auto">Wrtie a review</p>
+          <div class="col-9 d-flex align-items-center">
+            <p class="m-0">You have no Projects yet</p>
           </div>
         </div>
+      <% end %>
+    </div>
+    <% end %>
+    <h2 class="mt-5">My bookings</h2>
+    <div class="col">
+      <% if current_user.bookings.size > 0  %>
+        <% current_user.bookings.each do |booking| %>
+          <div class="row booking-card">
+            <div class="col-1 d-flex align-items-center">
+              <%= image_tag "avatar-user.png", class: "avatar avatar--medium" %>
+            </div>
+            <div class="row col-8 d-flex align-items-center justify-space-between">
+              <div class="booking-card--content col-4">
+                <h5 class="booking-card--title" ><%= booking.artist.user.first_name %>&nbsp;<%= booking.artist.user.last_name %></h5>
+                <p class="booking-card--subtext"><%= booking.artist.location %></p>
+              </div>
+              <div class="booking-card--content col-4">
+                <h5 class="booking-card--title">Booking date</h5>
+                <p class="booking-card--subtext"><%= booking.date.strftime("%A, %d %b %Y") %></p>
+              </div>
+              <div class="booking-card--content status col-4">
+                <h5 class="booking-card--title">Status</h5>
+                <p class="booking-card--subtext <%= booking.status %>"><%= booking.status %></p>
+              </div>
+            </div>
+            <div class="col-3 d-flex align-items-center justify-content-end">
+              <%= link_to new_booking_review_path(booking), class: "d-flex align-items-center justify-content-end" do %>
+                <%= image_tag ("pencil.svg"), class: "svg-img " %>
+                <p class="ms-2 my-auto">Wrtie a review</p>
+              <% end %>
+            </div>
+          </div>
         <% end %>
+      <% else %>
+        <div class="row booking-card">
+          <div class="col-9 d-flex align-items-center">
+            <p class="m-0">You have no bookings yet</p>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
