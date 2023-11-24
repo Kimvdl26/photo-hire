@@ -19,9 +19,9 @@ class ArtistsController < ApplicationController
   end
 
   def update
-    artist = Artist.find(params[:id])
-    artist.update(params.require(:artist).permit(:description, :personality, :style, :location, :hourly_rate))
-    redirect_to profile_path
+    @artist = current_user.artist
+    @artist.update(params.require(:artist).permit(:description, :personality, :style, :location, :hourly_rate))
+    redirect_to profile_path, notice: 'Details succesfully updated.'
   end
 
   def show
