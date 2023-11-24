@@ -9,6 +9,9 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "email" }%>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.file_field :user_avatar %>
       <%= f.input :password,
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -16,11 +19,12 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
-      <%= f.input :is_artist %>
+      <%= f.input :is_artist
+                  "Want to become an artist?" %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up", class:"button button-blue" %>
+      <%= f.button :submit, "Sign up", class:"button button-blue w-100" %>
     </div>
   <% end %>
 
