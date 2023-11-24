@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
 
   root to: "pages#home"
+  devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :artists, only: [:index, :show, :new, :create, :edit, :update] do
     resources :artworks, only: [:index, :new, :create, :edit, :update]
