@@ -1,7 +1,11 @@
 <div class="container">
   <div class="artist-details row">
     <div class="col-6 left-section justify-content-start pt-5">
-      <%= cl_image_tag @artist.artworks.sample.artworks.first.key, class: "w-100" %>
+      <% if  @artist.artwork_ids.size > 0 %>
+        <%= cl_image_tag @artist.artworks.sample.artworks.first.key, class: "w-100" %>
+      <% else %>
+        <%= image_tag "image1.jpeg", class: "w-100" %>
+      <% end %>
     </div>
     <div class="col-6 right-section justify-content-end pt-1 mt-5">
       <div class="my-2 px-2">

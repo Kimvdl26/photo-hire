@@ -3,6 +3,7 @@ class Artist < ApplicationRecord
 
   has_many :artworks
   has_many :availabilities
+  has_many :bookings
 
   validates :user_id, uniqueness: true
 end
