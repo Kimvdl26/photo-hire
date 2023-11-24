@@ -6,5 +6,5 @@ class Booking < ApplicationRecord
   validates :status, presence: true, inclusion: { in: ["pending", "accepted", "rejected"] }
   validates :user_id, presence: true
   validates :artist_id, presence: true
-  validates :date, presence: true
+  validates :date, presence: { message: "Please select a date." }
 end
