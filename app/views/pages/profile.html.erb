@@ -33,9 +33,9 @@
       </div>
       <% if current_user.is_artist && current_user.artist.id  %>
         <div class="user-details--item d-flex justify-content-between align-items-center">
-        <h5>Personality</h5>
-        <p> <%= current_user.artist.personality ? current_user.artist.personality : "---"%> </p>
-      </div>
+          <h5>Personality</h5>
+          <p> <%= current_user.artist.personality ? current_user.artist.personality : "---"%> </p>
+        </div>
         <div class="user-details--item d-flex justify-content-between align-items-center">
           <h5>Location</h5>
           <p><%= current_user.artist.location ? current_user.artist.location : "---" %></p>

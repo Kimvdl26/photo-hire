@@ -8,7 +8,7 @@
   border-radius: 8px;
   text-decoration: none;
   color: white;
-  margin: 5px 0;
+  margin: 5px 10px;
   border: none;
 }
 
@@ -33,6 +33,11 @@
 .button-outline {
   border: 1px solid #3D00B7;
   color: #3D00B7;
+
+  &:hover {
+    background: #3D00B7;
+    color: white;
+  }
 }
 
 .full-width-button {
