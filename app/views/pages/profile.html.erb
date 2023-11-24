@@ -46,7 +46,11 @@
         </div>
         <div class="user-details--item d-flex justify-content-between align-items-center">
           <h5>Hourly Rate</h5>
-          <p><%= current_user.artist.hourly_rate ? current_user.artist.hourly_rate : "---" %></p>
+          <p>€<%= current_user.artist.hourly_rate ? current_user.artist.hourly_rate : "---" %>/hr</p>
+        </div>
+        <div class="user-details--item d-flex justify-content-between align-items-center">
+          <h5>Description</h5>
+          <p><%= current_user.artist.description ? current_user.artist.description : "---" %></p>
         </div>
       <% end %>
     </div>
@@ -76,8 +80,12 @@
               </div>
             </div>
             <div class="col-3 d-flex align-items-center justify-content-end">
-                <%= image_tag ("accept.svg"), class: "svg-img mx-2" %>
-                <%= image_tag ("reject.svg"), class: "svg-img mx-2 " %>
+              <%= link_to accept_booking_path(booking), data: { turbo_method: :patch, turbo_condfirm: "Are you sure you want to accept this booking?" }, class: "d-flex align-items-center justify-content-end" do %>
+                <%= image_tag "accept.svg", class: "svg-img mx-2" %>
+              <% end %>
+              <%= link_to reject_booking_path(booking), data: { turbo_method: :patch, turbo_condfirm: 'Are you sure you want to reject this booking?' }, class: "d-flex align-items-center justify-content-end" do %>
+                <%= image_tag "reject.svg", class: "svg-img mx-2 " %>
+              <% end %>
             </div>
           </div>
         <% end %>

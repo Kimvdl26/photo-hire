@@ -29,6 +29,7 @@
 
 .booking-card .status{
   text-align: right;
+  text-transform: capitalize;
 
   .pending{
     color: #F5A623;
@@ -36,7 +37,7 @@
   .accepted {
     color: #4CAF50;
   }
-  .declined {
+  .rejected {
     color: #F44336;
   }
 }

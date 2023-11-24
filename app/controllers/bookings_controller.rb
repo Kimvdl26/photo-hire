@@ -16,4 +16,22 @@ class BookingsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(params.require(:booking).permit(:status))
+    redirect_to profile_path
+  end
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.update(status: 'accepted')
+    redirect_to profile_path
+  end
+
+  def reject
+    @booking = Booking.find(params[:id])
+    @booking.update(status: 'rejected')
+    redirect_to profile_path
+  end
 end
