@@ -8,12 +8,17 @@
   border-radius: 8px;
   text-decoration: none;
   color: white;
-  margin: 5px 10px;
+  margin: 5px 0;
   border: none;
 }
 
 .button-blue {
   background: #3D00B7;
+
+  &:hover {
+    background: #4F00FF;
+    color: white;
+  }
 
   input {
     color: white;
