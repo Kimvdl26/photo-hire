@@ -4,9 +4,9 @@
         <h1>Art is beautiful, Art is life, Book your Artist</h1>
         <p>Browse our collection to find the Artists behind these beautiful masterpieces. Join us today and get bookings!</p>
         <div class="banner-action d-flex justify-content-between">
-          <a href="<%= artist_artworks_path(Artist.first) %>" class="button button-blue">Explore Artoworks</a>
+          <a href="<%= artist_artworks_path(Artist.first) %>" class="button button-blue">Explore Artworks</a>
           <% unless current_user.is_artist? %>
-            <a href="<%= artist_path(Artist.first) %>" class="button button-white">Become an artists</a>
+            <a href="<%= artist_path(Artist.first) %>" class="button button-white">Become an artist</a>
           <% end %>
         </div>
     </div>
